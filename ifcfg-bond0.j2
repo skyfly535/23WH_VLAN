@@ -1,0 +1,15 @@
+DEVICE=bond0
+NAME=bond0
+#Тип интерфейса — bond
+TYPE=Bond
+BONDING_MASTER=yes
+#Указаваем IP-адрес 
+IPADDR={{ bond_ip }}
+#Указываем маску подсети
+NETMASK=255.255.255.252
+ONBOOT=yes
+BOOTPROTO=static
+#Указываем режим работы bond-интерфейса Active-Backup
+# fail_over_mac=1 — данная опция «разрешает отвалиться» одному интерфейсу
+BONDING_OPTS="mode=1 miimon=100 fail_over_mac=1"
+NM_CONTROLLED=yes
